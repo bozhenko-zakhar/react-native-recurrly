@@ -2,8 +2,8 @@ import { useState } from "react";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
-import { formatCurrency } from "@/lib/utils";
 import { useSubscriptionStore } from "@/lib/subscriptionStore";
+import { formatCurrency } from "@/lib/utils";
 
 import { HOME_BALANCE, UPCOMING_SUBSCRIPTIONS } from "@/constants/data";
 import { icons } from "@/constants/icons";
@@ -16,8 +16,8 @@ import UpcomingSubscriptiongCard from "@/components/UpcomingSubscriptionCard";
 import dayjs from "dayjs";
 import { styled } from "nativewind";
 
-import "@/global.css";
 import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
+import "@/global.css";
 
 const SafeAreaView = styled(RNSafeAreaView);
 
@@ -45,7 +45,11 @@ export default function App() {
 								<Text className="home-user-name">Adrian | JS Mastery</Text>
 							</View>
 
-							<Pressable onPress={() => setIsModalVisible(true)}>
+							<Pressable
+								onPress={() => setIsModalVisible(true)}
+								accessibilityRole="button"
+								accessibilityLabel="Create subscription"
+							>
 								<Image source={icons.add} className="home-add-icon" />
 							</Pressable>
 						</View>
